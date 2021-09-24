@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "notestream",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authnotestream7efd13a5",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

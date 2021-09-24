@@ -1,0 +1,18 @@
+type Stream
+	@model
+	@auth(rules: [{ allow: owner }]) {
+	id: ID!
+	name: String!
+	notes: [Note] @connection(keyName: "byStream", fields: ["id"])
+}
+
+type Note
+	@model
+	@key(name: "byStream", fields: ["streamID"])
+	@auth(rules: [{ allow: owner }]) {
+	id: ID!
+	streamID: ID
+	streams: [Stream] @connection
+	content: String!
+	type: String!
+}
